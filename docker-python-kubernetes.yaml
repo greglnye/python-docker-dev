@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: docker-python-demo
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      demo: web
+  template:
+    metadata:
+      labels:
+        demo: web
+    spec:
+      containers:
+      - name: demo-site
+        image: greglnye/python-docker-dev:latest
+        imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: demo-entrypoint
+  namespace: default
+spec:
+  type: NodePort
+  selector:
+    demo: web
+  ports:
+  - port: 5000
+    targetPort: 5000
+    nodePort: 30005
