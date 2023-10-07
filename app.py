@@ -17,7 +17,7 @@ def get_widgets():
         host="db",
         user="postgres",
         password=password,
-        database="example"
+        database="example-python"
     )
     cursor = conn.cursor()
 
@@ -46,8 +46,8 @@ def db_init():
 
     cursor = conn.cursor()
 
-    cursor.execute("DROP DATABASE IF EXISTS example")
-    cursor.execute("CREATE DATABASE example")
+    cursor.execute("DROP DATABASE IF EXISTS example-python")
+    cursor.execute("CREATE DATABASE example-python")
 
     cursor.close()
     conn.commit()
@@ -57,7 +57,7 @@ def db_init():
     host="db",
     user="postgres",
     password=password,
-    database="example"
+    database="example-python"
     )
     cursor = conn.cursor()
 

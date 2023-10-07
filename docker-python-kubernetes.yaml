@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: demo-site
-        image: greglnye/python-docker-dev:latest
+        image: greglnye/python-docker-dev
         imagePullPolicy: Always
 ---
 apiVersion: v1
